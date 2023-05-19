@@ -1,0 +1,89 @@
+#include <iostream>
+using namespace std;
+
+// Circular deque implementation
+
+struct Deque{
+    int MAX_SIZE = 5, front, rear, *arr, n, size;
+    Deque(){
+        front = 0;
+        rear = 0;
+        size = 0;
+        arr = new int[MAX_SIZE];
+        n = MAX_SIZE;
+    }
+
+    void InsertAtRear(int x);
+    void InsertAtFront(int x);
+    int DeleteAtRear();
+    int DeleteAtFront();
+    int GetSize();
+    void Print();
+    bool isFull();
+    bool isEmpty();
+};
+
+void Deque::InsertAtRear(int x){
+    if(isFull()) return;
+    rear = (rear+1) % n;
+    arr[rear] = x;
+    size++;
+}
+
+void Deque::InsertAtFront(int x){
+    if(isFull()) return;
+    arr[front] = x;
+    front = (front-1+n) % n;
+    size++;
+}
+
+int Deque::DeleteAtFront(){
+    if(isEmpty()) return -1;
+    int a = arr[front+1];
+    front = (front+1) % n;
+    size--;
+    return a;
+}
+
+int Deque::DeleteAtRear(){
+    if(isEmpty()) return -1;
+    int a = arr[rear];
+    rear = (rear-1+n) % n;
+    size--;
+    return a;
+}
+
+bool Deque::isFull(){
+    return (rear+1)%n == front;
+}
+
+bool Deque::isEmpty(){
+    return rear == front;
+}
+
+int Deque::GetSize(){
+    return size;
+}
+
+void Deque::Print(){
+    if(isEmpty()) return;
+    for(int i=(front+1)%n; i!=rear; i = (i+1)%n){
+        cout << arr[i] << " ";
+    }
+    cout << arr[rear] << endl;
+}
+
+int main(){
+    Deque dq = Deque();
+    cout << "Size = " << dq.GetSize() << endl;
+    dq.InsertAtRear(6);
+    dq.Print();
+    cout << "Size = " << dq.GetSize() << endl;
+    dq.InsertAtFront(64);
+    dq.Print();
+    cout << "Size = " << dq.GetSize() << endl;
+    dq.DeleteAtRear();
+    dq.Print();
+    cout << "Size = " << dq.GetSize() << endl;
+    return 0;
+}
