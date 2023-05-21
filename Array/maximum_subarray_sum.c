@@ -9,7 +9,7 @@ int max(int a, int b){
 
 int kadane(int a[],int n){
     int cursum = 0;
-    int maxsum = INT_MIN;
+    int maxsum = INT_MIN; // if all elements are negative
     for (int i = 0; i < n; i++){
         cursum = max(cursum+a[i], a[i]);
         maxsum = max(maxsum,cursum);

@@ -3,8 +3,7 @@ using namespace std;
 
 // Function to return sum of count of set bits in the integers from 1 to n.
 
-int countSetBits(int n)
-{
+int countSetBits(int n){
     n++;
     int powerOfTwo = 2;
     int count = n/2;
@@ -17,6 +16,9 @@ int countSetBits(int n)
     }
     return count;
 }
+
+// Time Complexity: O(logn)
+// Auxiliary space: O(1)
 
 int main(){
     cout << countSetBits(5);

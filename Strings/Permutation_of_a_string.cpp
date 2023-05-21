@@ -16,7 +16,7 @@ void permutations(string s, int l, int r){
     }
 }
 
-// Time Complexity: O(n*n!)
+// Time Complexity: O(n!)
 // Auxiliary Space: O(n)
 
 // -------- METHOD -2 ------------

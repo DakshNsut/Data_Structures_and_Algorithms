@@ -3,6 +3,7 @@ using namespace std;
 
 // search in a row-wise and column-wise sorted matrix
 
+// -------------------- Method -1 ------------------
 int main(){
     int n1 = 4, n2 = 4;
     int m[n1][n2] = { { 10, 20, 30, 40 },

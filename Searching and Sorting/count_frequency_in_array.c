@@ -2,6 +2,8 @@
 #include <algorithm>
 using namespace std;
 
+// count frequency of x in sorted array
+
 // -------------- Method - 1 ----------------
 int freq_x1(int* a, int n, int x){
     int res = 0;
@@ -63,7 +65,7 @@ int freq_x2(int* a, int n, int x){
     return count;
 }
 
-// Time Complexity: O(log(n))
+// Time Complexity: O(log(n) + frequency)
 // Auxiliary space: O(1)
 
 // -------------- Using STL ----------------
